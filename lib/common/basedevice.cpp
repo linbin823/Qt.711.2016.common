@@ -1,6 +1,6 @@
 ﻿#include "basedevice.h"
 
-baseDevice::baseDevice(QObject *parent):QObject(parent),siErrMsg()
+baseDevice::baseDevice(QObject *parent):QObject(parent),iErrMsg()
 {
     name = "";
     state = 0;
@@ -77,7 +77,7 @@ void baseDevice::reset(quint64 resetCode){
     resetError( resetCode);
 }
 //baseDevice的信息保存
-int baseDevice::save(siLoadSaveProcessor* processor){
+int baseDevice::save(iLoadSaveProcessor* processor){
     processor->saveParameters(QString("name"), name);
     processor->saveParameters(QString("state"),QString::number(state));
     processor->saveParameters(QString("error"),QString::number(error));
@@ -85,7 +85,7 @@ int baseDevice::save(siLoadSaveProcessor* processor){
     return 0;
 }
 //baseDevice的信息读取
-int baseDevice::load(siLoadSaveProcessor *processor){
+int baseDevice::load(iLoadSaveProcessor *processor){
     QString value;
     bool ok;
     processor->loadParameters(QString("name"),&value);

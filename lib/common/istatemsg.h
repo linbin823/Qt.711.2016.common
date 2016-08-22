@@ -12,15 +12,15 @@
  * getState 子类程序实现，用于返回状态。
 
  **************************************************************************************************/
-#ifndef SISTATEMSG_H
-#define SISTATEMSG_H
+#ifndef ISTATEMSG_H
+#define ISTATEMSG_H
 
 #include <QObject>
 
-class siStateMsg
+class iStateMsg
 {
 public:
-    explicit siStateMsg(){}
+    explicit iStateMsg(){}
     virtual QString getStateString(int lang=0) const = 0;
     virtual inline quint64 getState() const = 0;
 
@@ -29,4 +29,4 @@ public:
 private:
 };
 
-#endif // SISTATEMSG_H
+#endif // ISTATEMSG_H

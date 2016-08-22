@@ -4,20 +4,20 @@
  * 状态保存&读取的标准接口
  *
  **************************************************************************************************/
-#ifndef SILOADSAVE_H
-#define SILOADSAVE_H
+#ifndef ILOADSAVE_H
+#define ILOADSAVE_H
 
 #include <QObject>
-#include "siLoadSaveProcessor.h"
+#include "iLoadSaveProcessor.h"
 
-class siLoadSave
+class iLoadSave
 {
 public:
-    explicit siLoadSave(){}
+    explicit iLoadSave(){}
     //每个对象都要实现的存取接口
     //参数1：读写本实例所对应的读写处理器。
-    virtual int save(siLoadSaveProcessor* processor)=0;
-    virtual int load(siLoadSaveProcessor* processor)=0;
+    virtual int save(iLoadSaveProcessor* processor)=0;
+    virtual int load(iLoadSaveProcessor* processor)=0;
 };
 
-#endif // SILOADSAVE_H
+#endif // ILOADSAVE_H

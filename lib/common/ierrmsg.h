@@ -14,15 +14,15 @@
  * getErrorString 子类程序实现，用于返回故障描述。
  * getErrorStringList 用于返回所有故障描述。
  **************************************************************************************************/
-#ifndef SIERRMSG_H
-#define SIERRMSG_H
+#ifndef IERRMSG_H
+#define IERRMSG_H
 
 #include <QObject>
 
-class siErrMsg
+class iErrMsg
 {
 public:
-    explicit siErrMsg(){}
+    explicit iErrMsg(){}
 
 
     //errorState
@@ -47,4 +47,4 @@ private:
 
 };
 
-#endif // SIERRMSG_H
+#endif // IERRMSG_H

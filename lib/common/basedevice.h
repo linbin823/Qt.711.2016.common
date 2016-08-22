@@ -3,12 +3,12 @@
 
 #include <QObject>
 #include <QDebug>
-#include "sierrmsg.h"
-#include "sistatemsg.h"
-#include "siloadsave.h"
-#include "siloadsaveprocessor.h"
+#include "ierrmsg.h"
+#include "istatemsg.h"
+#include "iloadsave.h"
+#include "iloadsaveprocessor.h"
 
-class baseDevice: public QObject, public siErrMsg, public siStateMsg, public siLoadSave
+class baseDevice: public QObject, public iErrMsg, public iStateMsg, public iLoadSave
 {
     Q_OBJECT
 public:
@@ -33,8 +33,8 @@ public:
     virtual void resetAll();//外部复位，全复位
     virtual void reset(quint64 resetCode);//外部复位，
 
-    virtual int save(siLoadSaveProcessor* processor);
-    virtual int load(siLoadSaveProcessor* processor);
+    virtual int save(iLoadSaveProcessor* processor);
+    virtual int load(iLoadSaveProcessor* processor);
 
     //state修改
     virtual inline void setState(quint64 newState);
