@@ -8,10 +8,23 @@
 #include "iloadsave.h"
 #include "iloadsaveprocessor.h"
 
+//虚类
+//由子类实现的纯虚函数
+//1、virtual QString getErrorString(quint64 errorCode, int lang=0) const = 0; from class iErrMsg
+//2、virtual QString getStateString(int lang=0) const = 0; from class iStateMsg
+//以下函数值实现了部分功能，由子类补充
+//1、virtual int save(iLoadSaveProcessor* processor)=0;
+//2、virtual int load(iLoadSaveProcessor* processor)=0;
+
 class baseDevice: public QObject, public iErrMsg, public iStateMsg, public iLoadSave
 {
+
     Q_OBJECT
 public:
+    enum language: int{
+        langCHN          = 0,
+        langEN           = 1,
+    };
 
     baseDevice(QObject *parent = 0);
     //State
@@ -49,7 +62,6 @@ public:
 
     //name修改
     void setName(QString newName);
-
 
 
 signals:

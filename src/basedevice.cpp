@@ -1,4 +1,8 @@
-﻿#include "basedevice.h"
+﻿#if _MSC_VER >= 1600
+#pragma execution_character_set("utf-8")
+#endif
+
+#include "basedevice.h"
 
 baseDevice::baseDevice(QObject *parent):QObject(parent),iErrMsg()
 {
@@ -19,21 +23,22 @@ quint64 baseDevice::getState() const{
 QStringList baseDevice::getErrorStringList(int lang) const{
     QStringList ret;
     quint64 test=1;
-    //qDebug()<<"baseDevice::getErrorStringList 1#"<<getError();
     if(getError() == 0){
-            ret<<QString::fromLocal8Bit("无错误");
+        if(lang == langEN){
+            ret<<"OK";
             return ret;
+        }
+        else{
+            ret<<QString("无错误");
+            return ret;
+        }
     }
-    //qDebug()<<"baseDevice::getErrorStringList 2#";
     for(int i=0; i<=63; i++){
        if(test & getError()){
-           //qDebug()<<"baseDevice::getErrorStringList 3#"<<test;
-           ret<<getErrorString(test);
-           //qDebug()<<"baseDevice::getErrorStringList 4#"<<ret;
+           ret<<getErrorString(test,lang);
        }
        test = test<<1;
     }
-    //qDebug()<<"baseDevice::getErrorStringList 5#"<<ret;
     return ret;
 }
 bool baseDevice::getError(quint64 errorCode) const{
