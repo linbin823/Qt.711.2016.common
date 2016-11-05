@@ -28,7 +28,7 @@ public:
 
     baseDevice(QObject *parent = 0);
     //State
-    virtual inline quint64 getState() const;
+    virtual quint64 getState() const;
 
     //error
     virtual QStringList getErrorStringList(int lang=0) const;
@@ -50,7 +50,7 @@ public:
     virtual int load(iLoadSaveProcessor* processor);
 
     //state修改
-    virtual inline void setState(quint64 newState);
+    virtual void setState(quint64 newState);
 
     //error修改
     virtual int updateError(quint64 errorCode);
