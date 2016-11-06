@@ -8,7 +8,7 @@
 #define ILOADSAVE_H
 
 #include <QObject>
-#include "iLoadSaveProcessor.h"
+#include "iloadsaveprocessor.h"
 
 class iLoadSave
 {
