@@ -21,10 +21,10 @@ class iStateMsg
 {
 public:
     explicit iStateMsg(){}
-    virtual QString getStateString(int lang=0) const = 0;
-    virtual inline quint64 getState() const = 0;
+    virtual QString getStateString(int lang=langCHN) const = 0;
+    virtual quint64 getState() const = 0;
 
-    virtual inline void setState(quint64 newState) = 0;
+    virtual void setState(quint64 newState) = 0;
 
 private:
 };

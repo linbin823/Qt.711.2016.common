@@ -31,7 +31,7 @@ public:
     virtual inline quint64 getState() const;
 
     //error
-    virtual QStringList getErrorStringList(int lang=0) const;
+    virtual QStringList getErrorStringList(int lang=langCHN) const;
     virtual bool getError(quint64 errorCode) const;
     virtual quint64 getError() const;
 
@@ -61,7 +61,7 @@ public:
     virtual int setErrorMask(quint64 errorCode);
 
     //name修改
-    void setName(QString newName);
+    void setName(const QString& newName);
 
 
 signals:
