@@ -21,7 +21,7 @@ class iStateMsg
 {
 public:
     explicit iStateMsg(){}
-    virtual QString getStateString(int lang=langCHN) const = 0;
+    virtual QString getStateString(int lang) const = 0;
     virtual quint64 getState() const = 0;
 
     virtual void setState(quint64 newState) = 0;

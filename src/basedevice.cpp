@@ -25,11 +25,11 @@ QStringList baseDevice::getErrorStringList(int lang) const{
     quint64 test=1;
     if(getError() == 0){
         if(lang == langEN){
-            ret<<"OK";
+            ret<<tr("OK");
             return ret;
         }
-        else{
-            ret<<QString("无错误");
+        else if(lang == langCHN){
+            ret<<tr("无错误");
             return ret;
         }
     }
@@ -56,7 +56,7 @@ quint64 baseDevice::getError() const{
 QString baseDevice::getName(void) const{
     return name;
 }
-void baseDevice::setName(QString newName){
+void baseDevice::setName(const QString& newName){
     name = newName;
     emit msgNameChanged(name);
     emit msgDeviceChanged(name);
