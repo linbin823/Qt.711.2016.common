@@ -8,5 +8,5 @@ HEADERS  += $$PWD\basedevice.h  \
 INCLUDEPATH += $$PWD\
 
 DISTFILES += \
-    $$PWD\../../HISTORY.txt \
-    $$PWD\../../README.txt
+    $$PWD\..\HISTORY.txt \
+    $$PWD\..\README.txt
