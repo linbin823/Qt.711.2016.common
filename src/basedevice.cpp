@@ -94,13 +94,13 @@ int baseDevice::load(iLoadSaveProcessor *processor){
     QString value;
     bool ok;
     processor->loadParameters(QString("name"),&value);
-    setName(name);
+    setName( value );
     processor->loadParameters(QString("state"),&value);
-    setState( value.toLong(&ok, 10) );
+    setState( value.toLongLong(&ok) );
     processor->loadParameters(QString("error"),&value);
-    updateError( value.toLong(&ok, 10) );
+    updateError( value.toLongLong(&ok) );
     processor->loadParameters(QString("errorMask"),&value);
-    setErrorMask( value.toLong(&ok, 10) );
+    setErrorMask( value.toLongLong(&ok) );
     return 0;
 }
 
