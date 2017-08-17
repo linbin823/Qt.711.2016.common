@@ -83,24 +83,18 @@ void baseDevice::reset(quint64 resetCode){
 }
 //baseDevice的信息保存
 int baseDevice::save(iLoadSaveProcessor* processor){
-    processor->saveParameters(QString("name"), name);
-    processor->saveParameters(QString("state"),QString::number(state));
-    processor->saveParameters(QString("error"),QString::number(error));
-    processor->saveParameters(QString("errorMask"),QString::number(errorMask));
+    processor->writeValue(QString("name"), name);
+    processor->writeValue(QString("state"),state);
+    processor->writeValue(QString("error"),error);
+    processor->writeValue(QString("errorMask"),errorMask);
     return 0;
 }
 //baseDevice的信息读取
 int baseDevice::load(iLoadSaveProcessor *processor){
-    QString value;
-    bool ok;
-    processor->loadParameters(QString("name"),&value);
-    setName( value );
-    processor->loadParameters(QString("state"),&value);
-    setState( value.toLongLong(&ok) );
-    processor->loadParameters(QString("error"),&value);
-    updateError( value.toLongLong(&ok) );
-    processor->loadParameters(QString("errorMask"),&value);
-    setErrorMask( value.toLongLong(&ok) );
+    processor->readValue(QString("name"),name);
+    processor->readValue(QString("state"),state);
+    processor->readValue(QString("error"),error);
+    processor->readValue(QString("errorMask"),errorMask);
     return 0;
 }
 
